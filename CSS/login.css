@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300;400;500;600&display=swap');
+:root{
+    --crimson:#3371c4;
+    --dark-color:#1e5d81;
+    --black:#444;
+    --light-color:#666;
+    --border:.1rem solid rgba(0,0,0,.1);
+    --border-hover:.1rem solid var(--crimson);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Fira Sans', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: none;
+    transition:all .2s linear;
+    transition:width none;
+}
+.btn{
+    margin-top: 1rem;
+    display:inline-block;
+    padding:.9rem 3rem;
+    border-radius: .5rem;
+    color:#fff;
+    background:var(--crimson);
+    font-size: 1.7rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn:hover{
+    background:var(--dark-color);
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width:0.5rem;
+}
+
+html::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background:var(--crimson);
+}
+
+
+.line{
+    border: none;
+    height: 6px;
+    background: var(--crimson);
+}
+.line2{
+    border: none;
+    height: 1px;
+    background: var(--crimson);
+}
+
+.header .header-1{
+    background:#fff;
+    padding: 0.05rem 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .header-1 .logo{
+  width: 20px;
+}
+
+.header .header-1 .icons div,
+.header .header-1 .icons a{
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+
+.header .header-1 .icons div:hover,
+.header .header-1 .icons a:hover{
+    color:var(--crimson);
+}
+
+.split-screen{
+    position: absolute;
+    top: 90px;
+    left: 450px;
+}
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-form-container form h3{
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    color:var(--black);
+    text-align: center;
+}
+
+.login-form-container form span{
+    display: block;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+
+.login-form-container form .box{
+    width: 100%;
+    margin:.9rem 0;
+    font-size: 1.6rem;
+    border:var(--border);
+    border-radius: .5rem;
+    padding:1rem 1.2rem;
+    color:var(--black);
+    text-transform: none;
+}
+
+
+.login-form-container form .checkbox{
+    display:flex;
+    align-items: center;
+    gap:.5rem;
+    padding:1rem 0;
+}
+
+.login-form-container form .checkbox label{
+    font-size: 1.5rem;
+    color:var(--light-color);
+    cursor: pointer;
+}
+
+.login-form-container form .btn{
+    text-align: center;
+    width:100%;
+    margin:1.5rem 0;
+}
+
+.login-form-container form p{
+    padding-top: .8rem;
+    color:var(--light-color);
+    font-size: 1.5rem;
+}
+
+.login-form-container form p a{
+    color:var(--crimson);
+    text-decoration: underline;
+}
+
+.share{
+    padding:1rem 0;
+    text-align: center;
+}
+
+.share a{
+    height: 3rem;
+    width: 3rem;
+    line-height: 3rem;
+    font-size: 1rem;
+    color:#fff;
+    background:var(--crimson);
+    margin:0 .3rem;
+    border-radius: 50%; 
+}
+
+.share a:hover{
+    background:var(--black);
+}
+
+.credit{
+    border-top: var(--border);
+    margin-top: 5rem;
+    padding:0 1rem;
+    padding-top: 2.5rem;
+    font-size: 1.3rem;
+    color:var(--light-color);
+    text-align: center;
+}
+
+.credit span{
+    color:var(--crimson);
+}
