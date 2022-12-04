@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300;400;500;600&display=swap');
 :root{
-    --crimson:#3371c4;
-    --dark-color:#1e5d81;
+    --crimson:#4d7dbb;
+    --dark-color:#2c4d79;
     --black:#444;
     --light-color:#666;
     --border:.1rem solid rgba(0,0,0,.1);
@@ -214,7 +214,7 @@ section{
 }
 .panel .font{
     font-size: 4rem;
-    color: #8c20d4;
+    color: #7bc64f;
 }
 .panel .font1{
     font-size: 2rem;
@@ -256,3 +256,15 @@ section{
     color:var(--black);
     text-transform: none;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #7bc64f;
+  }
+  
+  tr:hover {background-color: #cadbee;}

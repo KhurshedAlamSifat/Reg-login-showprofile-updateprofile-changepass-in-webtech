@@ -32,49 +32,25 @@ header("Location: login.php"); // Redirecting To Home Page
     </header>
     <hr class="line"></hr>
     <div class="sidebar">
-        <a class="active" href="home.php">Home</a>
+    <a href="home.php">Home</a>
         <a href="profile.php">Profile</a>
         <a href="updateprofile.php">Update Profile</a>
-        <a href="searchnurse.php">Search Nurse</a>
+        <a class="active" href="searchnurse.php">Search Nurse</a>
         <a href="changepass.php">Change Password</a>
         
         <a class="logout" href="logout.php">logout</a>
     </div>
     <div class="panel">
-       
+    
+        
+        <span>Search products </span>
+            <input type="text" id= "live_search1" autocomplete="off" class="box" placeholder="search nurse here...">
+    
+        <h1 id="result"></h1>
 
         
-        <?php
-
-        $name=$gender=$age=$email=$phn=$address="";
-        $connection = new db();
-        $conobj=$connection->opencon();
-        $userQuery=$connection->CheckUser($_SESSION["email"],$_SESSION["password"],"patient",$conobj);
-        
-        if ($userQuery->num_rows > 0) 
-        {
-            while($row = $userQuery->fetch_assoc()) 
-            {
-                $name=$row["fname"];
-                $gender=$row["gender"];
-                $age=$row["age"];
-                $email=$row["email"];
-                $phn=$row["phn"];
-                $address=$row["adrs"];
-            }
-        }else 
-        {
-            echo "0 results";
-        }
-        
-        
-
-        ?>
-        <br>
-        <br>
-        <br>
-        <h5> Hi<p class ="font"><?php echo $name." !";?></p></h5><br><br><br>
-         <h1> Welcome to our online nursing system</h1>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../JS/search.js"></script>
     </body>
 </html>

@@ -1,8 +1,7 @@
 <?php
 
 include "../Model/model.php";
-?>
-<?php
+
 
 if(isset($_POST["signup"]))
 {

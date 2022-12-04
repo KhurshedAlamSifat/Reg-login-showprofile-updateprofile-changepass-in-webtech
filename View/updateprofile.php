@@ -1,7 +1,7 @@
 <?php
 session_start(); 
 include('../Control/updatecheck.php');
-if(empty($_SESSION["customeremail"]))
+if(empty($_SESSION["email"]))
 {
 header("Location: login.php"); // Redirecting To Home Page
 }
@@ -15,32 +15,58 @@ header("Location: login.php"); // Redirecting To Home Page
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>24/7 Inernet Service Provider</title>
+        <title>Health Care</title>
         <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
         <!-- font awesome cdn link  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
         <!-- custom css file link  -->
-        <link rel="stylesheet" href="../Style/style.css">
+        <link rel="stylesheet" href="../CSS/dashboard.css">
     </head>
     <body>
     <header class="header">
         <div class="header-1">
-        <a href="#" class="logo"> <i><img src="../../../Logo/logo.png"></i> </a>
+        <a href="#" class="logo"> <i><img src="../Logo/logo.png"></i> </a>
         </div>
     </header>
     <hr class="line"></hr>
     <div class="sidebar">
-        <a href="home.php">Profile</a>
+        <a href="home.php"><i class="material-icons"></i>Home</a>
+        <a href="profile.php">Profile</a>
         <a class="active" href="updateprofile.php">Update Profile</a>        
-        <a href="product.php">View Product</a>
-        <a href="">Buy Internet Offer</a>
-        <a href="#complainntact">Add complain</a>
-        <a class="logout" href="../../Logout/logout.php">logout</a>
+        <a href="searchnurse.php">Search Nurse</a>
+        <a href="changepass.php">Change Password</a>
+        
+        <a class="logout" href="logout.php">logout</a>
     </div>
     <div class="panel">
-        <h2>Update Profile</h2>
+
+        <?php
+
+        $name=$gender=$age=$email=$phn=$address="";
+        $connection = new db();
+        $conobj=$connection->opencon();
+        $userQuery=$connection->CheckUser($_SESSION["email"],$_SESSION["password"],"patient",$conobj);
+        
+        if ($userQuery->num_rows > 0) 
+        {
+            while($row = $userQuery->fetch_assoc()) 
+            {
+                $name=$row["fname"];
+                $gender=$row["gender"];
+                $age=$row["age"];
+                $email=$row["email"];
+                $phn=$row["phn"];
+                $address=$row["adrs"];
+            }
+        }else 
+        {
+            echo "0 results";
+        }
+        
+
+        ?>
         
     
 
@@ -49,18 +75,20 @@ header("Location: login.php"); // Redirecting To Home Page
                     <form action="" onsubmit="return validateForm()" method="post" enctype="multipart/form-data">
                         <h3>Edit Profile</h3>
                         <span>Fullname</span>
-                        <input type="text" name="customername" class="box"   id="customername">
-                        <p style="color:red" id="errname"></p>
-                        <table><tr><td><span>Gender</span></td></tr>
-                        <tr><td><input type="radio" name="customergender"  value="Male" id="customergender1"><span>Male</span></td>
-                        <td><input type="radio" name="customergender"  value="Female" id="customergender2"><span>Female</span></td></tr></table>
-                        <p style="color:red" id="errgender"></p>
+                        <input type="text" name="name" class="box"  value=<?php echo $name;?> >
+                        <!-- <p style="color:red" id="errname"></p> -->
+
+                        <span>Age</span>
+                        <input type="text" name="age" class="box" value=<?php echo $age;?>>
+
+                        <span>Phone</span>
+                        <input type="text" name="phone" class="box" value=<?php echo $phn;?> >
                         
                         <span>Address</span>
-                        <input type="text" name="customeraddress" class="box" id="customeraddress">
-                        <p style="color:red" id="erradd"></p>
+                        <input type="text" name="address" class="box" value=<?php echo $address;?>>
+                        <!-- <p style="color:red" id="erradd"></p> -->
 
-                        <input type="submit" name = "customerupdate"value="Update" class="btn">
+                        <input type="submit" name = "update"value="Update" class="btn">
                     </form>
             </section>
     </div>

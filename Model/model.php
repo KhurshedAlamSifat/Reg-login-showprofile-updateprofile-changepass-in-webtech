@@ -31,12 +31,12 @@ class DB
         return $result;
     }
 
-    function UpdateUser($fname, $gender, $email, $address, $tablename, $conn)
+    function UpdateUser($fname, $age, $email, $phn, $address, $tablename, $conn)
     {
-        $sql = "UPDATE $tablename SET fname='$fname', gender='$gender', adres='$address' WHERE mail='$email'";
+        $sql = "UPDATE $tablename SET fname='$fname', age='$age', phn='$phn', adrs='$address' WHERE email='$email'";
 
     if ($conn->query($sql) === TRUE) {
-        header("location: ../../Home/View/home.php");
+        header("location: ../View/profile.php");
         $result= TRUE;
     } else {
         $result= FALSE ;
@@ -45,8 +45,23 @@ class DB
     return  $result;
     }
 
+    function ChangePass($email, $pass, $tablename, $conn)
+    {
+        $sql = "UPDATE $tablename SET pass='$pass' WHERE email='$email'";
+
+    if ($conn->query($sql) === TRUE) {
+        header("location: ../View/home.php");
+        $result= TRUE;
+    } else {
+        $result= FALSE ;
+        echo failed;
+    }
+    return  $result;
+    }
+
+
     function Search($search,$tablename,$conn){
-        $result = $conn->query("SELECT * FROM  $tablename WHERE router LIKE '{$search}%' OR price LIKE '{$search}%'");
+        $result = $conn->query("SELECT * FROM  $tablename WHERE nname LIKE '{$search}%' OR hospital LIKE '{$search}%'");
         return $result;
     }
 

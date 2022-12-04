@@ -35,11 +35,12 @@ header("Location: login.php"); // Redirecting To Home Page
         <a href="home.php">Home</a>
         <a class="active" href="profile.php">Profile</a>
         <a href="updateprofile.php">Update Profile</a>
+        <a href="searchnurse.php">Search Nurse</a>
+        <a href="changepass.php">Change Password</a>
         
         <a class="logout" href="logout.php">logout</a>
     </div>
     <div class="panel">
-        <h2>Profile Dashboard</h2>
         
         <?php
 
@@ -66,12 +67,16 @@ header("Location: login.php"); // Redirecting To Home Page
         
 
         ?>
-        <h5> Hi <p class ="font"><?php echo $name." !";?></p></h5><br><br><br>
-        <h7 class ="font1">Gender: <?php echo $gender;?></h7><br>
-        <h7 class ="font1">Age: <?php echo $age;?></h7><br>
-        <h7 class ="font1">E-mail: <?php echo $email;?></h7><br>
-        <h7 class ="font1">Phone no: <?php echo $phn;?></h7><br>
-        <h7 class ="font1">Location: <?php echo $address;?></h7><br>
+        <br><br><br>
+        <h1>
+        <table>
+            <tr><td>Name</td><td></td><td>&nbsp;&nbsp;<?php echo" : ". $name;?></td></tr>
+            <tr><td>Email</td><td></td><td>&nbsp;&nbsp;<?php echo" : ". $email;?></td></tr>
+            <tr><td>Gender</td><td></td><td>&nbsp;&nbsp;<?php echo" : ". $gender;?></td></tr>
+            <tr><td>Age</td><td></td><td>&nbsp;&nbsp;<?php echo" : ". $age;?></td></tr>
+            <tr><td>Phone no</td><td></td><td>&nbsp;&nbsp;<?php echo" : ". $phn;?></td></tr>
+            <tr><td>Address</td><td></td><td>&nbsp;&nbsp;<?php echo" : ". $address;?></td></tr>
+        </table></h1>
     </div>
     </body>
 </html>
